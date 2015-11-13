@@ -1,0 +1,144 @@
+﻿<ResourceDictionary
+  xmlns="http://schemas.microsoft.com/client/2007"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows"
+  xmlns:controls="clr-namespace:Cokkiy.Display"
+    xmlns:resources="clr-namespace:Cokkiy.Display.Resources">
+    <!--Template for CarouselItem-->
+    <Style TargetType="controls:CarouselItem">        
+        <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:CarouselItem">                    
+                    <Border x:Name="border" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" BorderThickness="1" BorderBrush="#7D7D7DFF">
+                        <Grid>
+                            <Image Cursor="{TemplateBinding Cursor}" Source="{TemplateBinding Source}" Stretch="UniformToFill"/>
+                            <Rectangle x:Name="mask" Stroke="#FF000000" Canvas.ZIndex="1" Opacity="0">
+                            <Rectangle.Fill>
+                                <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                                    <GradientStop Color="#FF000000"/>
+                                    <GradientStop Color="#FFFFFFFF" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+                            </Rectangle>
+                        </Grid>
+                        <vsm:VisualStateManager.VisualStateGroups>
+                            <vsm:VisualStateGroup x:Name="BorderStateGroup">
+                                <vsm:VisualStateGroup.Transitions>
+                                    <vsm:VisualTransition GeneratedDuration="00:00:00.50" To="MouseOverState"/>
+                                    <vsm:VisualTransition From="MouseOverState" GeneratedDuration="00:00:01"/>
+                                </vsm:VisualStateGroup.Transitions>
+                                <vsm:VisualState x:Name="MouseOverState">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+                                            <SplineColorKeyFrame KeyTime="00:00:00" Value="#FFFFFFFF"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </vsm:VisualState>
+                                <vsm:VisualState x:Name="NormalState"/>
+                            </vsm:VisualStateGroup>
+                        </vsm:VisualStateManager.VisualStateGroups>
+                    </Border>                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!--Template for Carousel-->
+    <Style TargetType="controls:Carousel">
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="CarouselBackground" Value="Transparent"/>
+        <Setter Property="Margin" Value="0,0,0,0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:Carousel">
+                    <Grid Background="{TemplateBinding Background}" Margin="{TemplateBinding Margin}" Cursor="{TemplateBinding Cursor}">
+                        <Grid.Resources>
+                            <!--ControlTemplate for FullScreen Button-->
+                            <ControlTemplate TargetType="Button" x:Key="fullScreenButtonTemplate">
+                                <StackPanel Orientation="Horizontal">                                    
+                                    <vsm:VisualStateManager.VisualStateGroups>
+                                        <vsm:VisualStateGroup x:Name="CommonStates">
+                                            <vsm:VisualState x:Name="Normal"/>
+                                            <vsm:VisualState x:Name="MouseOver">
+                                                <Storyboard>
+                                                    <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="innerCanvas" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                                        <SplineColorKeyFrame KeyTime="00:00:00.50" Value="#FF0B0B0B"/>
+                                                    </ColorAnimationUsingKeyFrames>
+                                                    <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="outerCanvas" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                                        <SplineColorKeyFrame KeyTime="00:00:00.50" Value="#FFCCD5F2"/>
+                                                    </ColorAnimationUsingKeyFrames>
+                                                    <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="toolTipTextBlock" Storyboard.TargetProperty="Opacity">
+                                                        <SplineDoubleKeyFrame KeyTime="00:00:00.50" Value="1"/>
+                                                    </DoubleAnimationUsingKeyFrames>
+                                                </Storyboard>
+                                            </vsm:VisualState>
+                                            <vsm:VisualState x:Name="Pressed">
+                                            </vsm:VisualState>
+                                            <vsm:VisualState x:Name="Disabled">
+                                            </vsm:VisualState>
+                                        </vsm:VisualStateGroup>
+                                        <vsm:VisualStateGroup x:Name="FocusStates">
+                                            <vsm:VisualState x:Name="Focused">
+                                            </vsm:VisualState>
+                                            <vsm:VisualState x:Name="Unfocused"/>
+                                        </vsm:VisualStateGroup>
+                                    </vsm:VisualStateManager.VisualStateGroups>
+                                    <Grid>
+                                        <Canvas Height="16" x:Name="outerCanvas" Width="16" Background="#FF615E5E"/>
+                                        <Canvas Height="10" HorizontalAlignment="Left" x:Name="innerCanvas" VerticalAlignment="Bottom" Width="10" Background="#FF3A3838"/>
+                                    </Grid>
+                                    <TextBlock x:Name="toolTipTextBlock" Text="Full Screen" Opacity="0" FontFamily="Verdana" FontSize="12" Foreground="#C8C8C8"/>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Grid.Resources>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <!--The panel used to display the selected item larger visual-->
+                        <controls:ItemViewerControl  x:Name="selectedItemViewer" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.ZIndex="1"/>
+                        <!--The canvas used to display the carsouel like control-->
+                        <Canvas x:Name="carouselCanvas" Grid.Row="2" Grid.RowSpan="2" Background="Transparent"/>
+                        <Button x:Name="fullScreenButton" Cursor="Hand" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Bottom" Template="{StaticResource fullScreenButtonTemplate}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!--Template for ItemViewerControl-->
+    <Style TargetType="controls:ItemViewerControl">
+        <Setter Property="Background" Value="Black"/>
+        <Setter Property="Foreground" Value="#FFFFFFFF"/>
+        <Setter Property="Template">
+            <Setter.Value>                
+                <ControlTemplate TargetType="controls:ItemViewerControl">
+                    <Grid>
+                        <vsm:VisualStateManager.VisualStateGroups>
+                            <vsm:VisualStateGroup x:Name="TitleStateGroup">
+                                <vsm:VisualStateGroup.Transitions>
+                                    <vsm:VisualTransition From="TitleShowState" GeneratedDuration="00:00:02"/>
+                                </vsm:VisualStateGroup.Transitions>
+                                <vsm:VisualState x:Name="TitleShowState">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="titleBorder" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00.8000000" Value="0.6"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </vsm:VisualState>
+                                <vsm:VisualState x:Name="TitleHideState"/>
+                            </vsm:VisualStateGroup>
+                        </vsm:VisualStateManager.VisualStateGroups>
+                        <Image HorizontalAlignment="Center" VerticalAlignment="Bottom" Source="{TemplateBinding Source}" Stretch="Uniform" />
+                        <Border x:Name="titleBorder" Margin="0,0,0,20" Opacity="0" VerticalAlignment="Bottom" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding Background}" BorderThickness="3,3,3,3" CornerRadius="5,5,5,5">
+                            <TextBlock x:Name="titleTextBlock" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}" FontSize="16" Text="{TemplateBinding Title}" TextWrapping="Wrap"/>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

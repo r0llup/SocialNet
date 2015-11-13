@@ -1,0 +1,86 @@
+﻿<Window x:Class="SocialNetWPF.SocialNet"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SocialNet" ResizeMode="CanMinimize" DataContext="{Binding}" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Height="600" Width="800" WindowStartupLocation="CenterScreen" xmlns:my="clr-namespace:SocialNetWPF.SocialNetServiceReference" Loaded="Window_Loaded" Closing="Window_Closing" xmlns:my1="clr-namespace:SocialNetWPF">
+    <Grid>
+        <Menu Height="23" HorizontalAlignment="Stretch" Name="menu1" VerticalAlignment="Top" HorizontalContentAlignment="Stretch" DataContext="{Binding}" Margin="0,0,-17,0">
+            <MenuItem Header="Fichier" InputGestureText="">
+                <MenuItem Header="Sauvegarder" Click="MenuItem_Click_10" ToolTip="Sauvegarder les données." />
+                <Separator />
+                <MenuItem Header="Quitter" Click="MenuItem_Click" ToolTip="Quitter SocialNet." />
+            </MenuItem>
+            <MenuItem Header="Affichage">
+                <MenuItem Header="Actualiser" Click="MenuItem_Click_11" ToolTip="Actualiser les données." />
+            </MenuItem>
+            <MenuItem Header="Catégories">
+                <MenuItem Header="Ajouter" Click="MenuItem_Click_1" ToolTip="Ajouter une catégorie." />
+                <MenuItem Header="Modifier" Click="MenuItem_Click_2" ToolTip="Modifier une catégorie." />
+                <MenuItem Header="Supprimer" Click="MenuItem_Click_3" ToolTip="Supprimer une catégorie." />
+            </MenuItem>
+            <MenuItem Header="Utilisateurs">
+                <MenuItem Header="Ajouter" Click="MenuItem_Click_7" ToolTip="Ajouter un utilisateur." />
+                <MenuItem Header="Modifier" Click="MenuItem_Click_8" ToolTip="Modifier un utilisateur." />
+                <MenuItem Header="Supprimer" Click="MenuItem_Click_9" ToolTip="Supprimer un utilisateur." />
+            </MenuItem>
+            <MenuItem Header="Évènements">
+                <MenuItem Header="Ajouter" Click="MenuItem_Click_4" ToolTip="Ajouter un évènement." />
+                <MenuItem Header="Modifier" Click="MenuItem_Click_5" ToolTip="Modifier un évènement." />
+                <MenuItem Header="Supprimer" Click="MenuItem_Click_6" ToolTip="Supprimer un évènement." />
+            </MenuItem>
+        </Menu>
+        <GroupBox Header="Catégories" Height="235" HorizontalAlignment="Left" Margin="12,29,0,0" Name="categoriesGroupBox" VerticalAlignment="Top" Width="266">
+            <Grid>
+                <DataGrid EnableRowVirtualization="True" Height="200" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="6,8,0,0" Name="categoriesDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" VerticalAlignment="Top" Width="239" AutoGenerateColumns="False" ColumnWidth="Auto">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn x:Name="descriptionColumn" Binding="{Binding Path=Description}" Header="Description" />
+                        <DataGridTextColumn x:Name="nomColumn" Binding="{Binding Path=Nom}" Header="Nom" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Utilisateurs" Height="235" HorizontalAlignment="Left" Margin="284,29,0,0" Name="usersGroupBox" VerticalAlignment="Top" Width="482">
+            <Grid>
+                <DataGrid AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Height="200" HorizontalAlignment="Left" Margin="6,6,0,0" Name="usersDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" VerticalAlignment="Top" Width="458" ColumnWidth="Auto">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn x:Name="avatarColumn" Binding="{Binding Path=Avatar}" Header="Avatar" />
+                        <DataGridTextColumn x:Name="nomColumn2" Binding="{Binding Path=Nom}" Header="Nom" />
+                        <DataGridTextColumn x:Name="passwordColumn" Binding="{Binding Path=Password}" Header="Password" />
+                        <DataGridTextColumn x:Name="prenomColumn" Binding="{Binding Path=Prenom}" Header="Prenom" />
+                        <DataGridTextColumn x:Name="pseudoColumn" Binding="{Binding Path=Pseudo}" Header="Pseudo" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Évènements" Height="268" HorizontalAlignment="Left" Margin="12,264,0,0" Name="eventsGroupBox" VerticalAlignment="Top" Width="754">
+            <Grid>
+                <DataGrid AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Height="233" HorizontalAlignment="Left" Margin="6,6,0,0" Name="eventsDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" VerticalAlignment="Top" Width="730" ColumnWidth="Auto">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn x:Name="categorieColumn" Binding="{Binding Path=Categorie}" Header="Categorie" />
+                        <DataGridTemplateColumn x:Name="dateDebutColumn" Header="Date Debut">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <DatePicker SelectedDate="{Binding Path=DateDebut, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn x:Name="dateFinColumn" Header="Date Fin">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <DatePicker SelectedDate="{Binding Path=DateFin, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn x:Name="descriptionColumn1" Binding="{Binding Path=Description}" Header="Description" />
+                        <DataGridTextColumn x:Name="nomColumn1" Binding="{Binding Path=Nom}" Header="Nom" />
+                        <DataGridTextColumn x:Name="photoColumn" Binding="{Binding Path=Photo}" Header="Photo" />
+                        <DataGridTextColumn x:Name="statutColumn" Binding="{Binding Path=Statut}" Header="Statut" />
+                        <DataGridTextColumn x:Name="userColumn" Binding="{Binding Path=User}" Header="User" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </GroupBox>
+        <StatusBar Height="23" HorizontalAlignment="Left" Margin="0,547,0,0" Name="statusBar" VerticalAlignment="Top" Width="795">
+            <StatusBarItem Name="statusBarItem" />
+        </StatusBar>
+    </Grid>
+</Window>

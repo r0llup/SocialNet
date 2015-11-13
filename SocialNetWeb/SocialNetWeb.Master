@@ -1,0 +1,30 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SocialNetWeb.master.cs" Inherits="SocialNetWeb.SocialNetWeb" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+    <head>
+        <asp:ContentPlaceHolder ID="title" runat="server"></asp:ContentPlaceHolder>
+        <link rel="stylesheet" type="text/css" href="styles/index.css" />
+        <script type="text/javascript" src="scripts/Silverlight.js"></script>
+        <script type="text/javascript" src="scripts/SilverlightError.js"></script>
+    </head>
+    <body>
+        <form id="form" runat="server">
+            <div id="content">
+                <h1>SocialNet</h1>
+                <ul id="menu">
+                    <li><a href="index.aspx">Index</a></li>
+                    <li><a href="login.aspx"><asp:Label ID="loginLabel" runat="server" Text="Login"></asp:Label></a></li>
+                    <li><a href="events.aspx">My Events</a></li>
+                    <li><a href="records.aspx">My Records</a></li>
+                    <li><a href="comments.aspx">My Comments</a></li>
+                    <li><asp:Label ID="welcomeLabel" runat="server" Text="Welcome Back, Stranger!"></asp:Label></li>
+                </ul>
+                <asp:ContentPlaceHolder ID="indexPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+                <asp:ContentPlaceHolder ID="loginPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+                <asp:ContentPlaceHolder ID="eventsPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+                <asp:ContentPlaceHolder ID="recordsPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+                <asp:ContentPlaceHolder ID="commentsPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+            </div>
+        </form>
+    </body>
+</html>

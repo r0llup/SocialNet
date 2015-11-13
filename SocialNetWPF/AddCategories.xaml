@@ -1,0 +1,31 @@
+﻿<Window x:Class="SocialNetWPF.AddCategories"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SocialNet - AddCategories" Height="189" Width="523" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:my="clr-namespace:SocialNetWPF.SocialNetServiceReference" ShowInTaskbar="False">
+    <Window.Resources>
+        <CollectionViewSource x:Key="categoriesViewSource" d:DesignSource="{d:DesignInstance my:Category, CreateList=True}" />
+    </Window.Resources>
+    <Grid>
+        <GroupBox Header="Informations" Height="102" HorizontalAlignment="Left" Margin="12,12,0,0" Name="groupBox1" VerticalAlignment="Top" Width="477">
+            <Grid>
+                <Grid DataContext="{StaticResource categoriesViewSource}" HorizontalAlignment="Left" Margin="6,6,0,0" Name="grid2" VerticalAlignment="Top" Width="453" Height="67">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Label Content="Description:" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="3" VerticalAlignment="Center" />
+                    <TextBox Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="3,3,0,3" Name="descriptionTextBox" Text="{Binding Path=Description, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" VerticalAlignment="Center" Width="365" />
+                    <Label Content="Nom:" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="3" VerticalAlignment="Center" />
+                    <TextBox Grid.Column="1" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="3,3,0,3" Name="nomTextBox" Text="{Binding Path=Nom, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" VerticalAlignment="Center" Width="225" />
+                </Grid>
+            </Grid>
+        </GroupBox>
+        <Grid Height="36" Margin="12,120,0,0" Name="grid1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="477">
+            <Button Content="Ok" Height="23" HorizontalAlignment="Left" Margin="188,6,0,0" Name="okButton" VerticalAlignment="Top" Width="75" Click="okButton_Click" />
+        </Grid>
+    </Grid>
+</Window>

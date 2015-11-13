@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SocialNetService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:58777/SocialNetService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:58777/SocialNetService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:58777/SocialNetService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SocialNetDAL" />
+      <xsd:import schemaLocation="http://localhost:58777/SocialNetService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISocialNetService_UpdateComments_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateComments" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_UpdateComments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_DeleteComments_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteComments" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_DeleteComments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_GetComments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetComments" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_GetComments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListComments_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListComments" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListComments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListRelatedComments_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListRelatedComments" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListRelatedComments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListRelatedCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_AddCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCategories" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_AddCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_UpdateCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCategories" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_UpdateCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_DeleteCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCategories" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_DeleteCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_GetCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategories" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_GetCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListCategories" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_AddEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEvents" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_AddEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_UpdateEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEvents" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_UpdateEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_DeleteEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEvents" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_DeleteEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_GetEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEvents" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_GetEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListEvents" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListPublicEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListPublicEvents" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListPublicEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListPublicEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListPrivateEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListPrivateEvents" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListPrivateEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListPrivateEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListRelatedEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListRelatedEvents" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListRelatedEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListRelatedEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListEventsNamePhoto_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListEventsNamePhoto" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListEventsNamePhoto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListEventsNamePhotoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListEventsName_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListEventsName" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListEventsName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListEventsNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListEventsPhoto_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListEventsPhoto" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListEventsPhoto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListEventsPhotoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_AddUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUsers" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_AddUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_UpdateUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUsers" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_UpdateUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_DeleteUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUsers" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_DeleteUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_GetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_GetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListUsers" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_AddRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRecords" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_AddRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_UpdateRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRecords" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_UpdateRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_DeleteRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRecords" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_DeleteRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListRecords" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListRelatedRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListRelatedRecords" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_ListRelatedRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListRelatedRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_AddComments_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddComments" />
+  </wsdl:message>
+  <wsdl:message name="ISocialNetService_AddComments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCommentsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISocialNetService">
+    <wsdl:operation name="UpdateComments">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/UpdateComments" message="tns:ISocialNetService_UpdateComments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/UpdateCommentsResponse" message="tns:ISocialNetService_UpdateComments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteComments">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/DeleteComments" message="tns:ISocialNetService_DeleteComments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/DeleteCommentsResponse" message="tns:ISocialNetService_DeleteComments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetComments">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/GetComments" message="tns:ISocialNetService_GetComments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/GetCommentsResponse" message="tns:ISocialNetService_GetComments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListComments">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/ListComments" message="tns:ISocialNetService_ListComments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/ListCommentsResponse" message="tns:ISocialNetService_ListComments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListRelatedComments">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/ListRelatedComments" message="tns:ISocialNetService_ListRelatedComments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/ListRelatedCommentsResponse" message="tns:ISocialNetService_ListRelatedComments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/AddCategories" message="tns:ISocialNetService_AddCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/AddCategoriesResponse" message="tns:ISocialNetService_AddCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/UpdateCategories" message="tns:ISocialNetService_UpdateCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/UpdateCategoriesResponse" message="tns:ISocialNetService_UpdateCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/DeleteCategories" message="tns:ISocialNetService_DeleteCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/DeleteCategoriesResponse" message="tns:ISocialNetService_DeleteCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/GetCategories" message="tns:ISocialNetService_GetCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/GetCategoriesResponse" message="tns:ISocialNetService_GetCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/ListCategories" message="tns:ISocialNetService_ListCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/ListCategoriesResponse" message="tns:ISocialNetService_ListCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/AddEvents" message="tns:ISocialNetService_AddEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/AddEventsResponse" message="tns:ISocialNetService_AddEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/UpdateEvents" message="tns:ISocialNetService_UpdateEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/UpdateEventsResponse" message="tns:ISocialNetService_UpdateEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/DeleteEvents" message="tns:ISocialNetService_DeleteEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/DeleteEventsResponse" message="tns:ISocialNetService_DeleteEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/GetEvents" message="tns:ISocialNetService_GetEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/GetEventsResponse" message="tns:ISocialNetService_GetEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/ListEvents" message="tns:ISocialNetService_ListEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/ListEventsResponse" message="tns:ISocialNetService_ListEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListPublicEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/ListPublicEvents" message="tns:ISocialNetService_ListPublicEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/ListPublicEventsResponse" message="tns:ISocialNetService_ListPublicEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListPrivateEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/ListPrivateEvents" message="tns:ISocialNetService_ListPrivateEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/ListPrivateEventsResponse" message="tns:ISocialNetService_ListPrivateEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListRelatedEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/ListRelatedEvents" message="tns:ISocialNetService_ListRelatedEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/ListRelatedEventsResponse" message="tns:ISocialNetService_ListRelatedEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListEventsNamePhoto">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/ListEventsNamePhoto" message="tns:ISocialNetService_ListEventsNamePhoto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/ListEventsNamePhotoResponse" message="tns:ISocialNetService_ListEventsNamePhoto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListEventsName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/ListEventsName" message="tns:ISocialNetService_ListEventsName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/ListEventsNameResponse" message="tns:ISocialNetService_ListEventsName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListEventsPhoto">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/ListEventsPhoto" message="tns:ISocialNetService_ListEventsPhoto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/ListEventsPhotoResponse" message="tns:ISocialNetService_ListEventsPhoto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/AddUsers" message="tns:ISocialNetService_AddUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/AddUsersResponse" message="tns:ISocialNetService_AddUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/UpdateUsers" message="tns:ISocialNetService_UpdateUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/UpdateUsersResponse" message="tns:ISocialNetService_UpdateUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/DeleteUsers" message="tns:ISocialNetService_DeleteUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/DeleteUsersResponse" message="tns:ISocialNetService_DeleteUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/GetUsers" message="tns:ISocialNetService_GetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/GetUsersResponse" message="tns:ISocialNetService_GetUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/ListUsers" message="tns:ISocialNetService_ListUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/ListUsersResponse" message="tns:ISocialNetService_ListUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/AddRecords" message="tns:ISocialNetService_AddRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/AddRecordsResponse" message="tns:ISocialNetService_AddRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/UpdateRecords" message="tns:ISocialNetService_UpdateRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/UpdateRecordsResponse" message="tns:ISocialNetService_UpdateRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/DeleteRecords" message="tns:ISocialNetService_DeleteRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/DeleteRecordsResponse" message="tns:ISocialNetService_DeleteRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/GetRecords" message="tns:ISocialNetService_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/GetRecordsResponse" message="tns:ISocialNetService_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/ListRecords" message="tns:ISocialNetService_ListRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/ListRecordsResponse" message="tns:ISocialNetService_ListRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListRelatedRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/ListRelatedRecords" message="tns:ISocialNetService_ListRelatedRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/ListRelatedRecordsResponse" message="tns:ISocialNetService_ListRelatedRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddComments">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocialNetService/AddComments" message="tns:ISocialNetService_AddComments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocialNetService/AddCommentsResponse" message="tns:ISocialNetService_AddComments_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISocialNetService" type="tns:ISocialNetService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateComments">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/UpdateComments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteComments">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/DeleteComments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetComments">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/GetComments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListComments">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/ListComments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListRelatedComments">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/ListRelatedComments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCategories">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/AddCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCategories">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/UpdateCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCategories">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/DeleteCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/GetCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListCategories">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/ListCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEvents">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/AddEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvents">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/UpdateEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEvents">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/DeleteEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEvents">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/GetEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListEvents">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/ListEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListPublicEvents">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/ListPublicEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListPrivateEvents">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/ListPrivateEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListRelatedEvents">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/ListRelatedEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListEventsNamePhoto">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/ListEventsNamePhoto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListEventsName">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/ListEventsName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListEventsPhoto">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/ListEventsPhoto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUsers">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/AddUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUsers">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/UpdateUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUsers">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/DeleteUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/GetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListUsers">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/ListUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRecords">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/AddRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRecords">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/UpdateRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRecords">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/DeleteRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecords">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/GetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListRecords">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/ListRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListRelatedRecords">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/ListRelatedRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddComments">
+      <soap:operation soapAction="http://tempuri.org/ISocialNetService/AddComments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SocialNetService">
+    <wsdl:port name="BasicHttpBinding_ISocialNetService" binding="tns:BasicHttpBinding_ISocialNetService">
+      <soap:address location="http://localhost:58777/SocialNetService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

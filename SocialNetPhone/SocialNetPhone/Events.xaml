@@ -1,0 +1,56 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="SocialNetPhone.EventsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot est la grille racine où tout le contenu de la page est placé-->
+    <Grid x:Name="LayoutRoot" Background="#FF474747">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contient le nom de l'application et le titre de la page-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="SocialNet" Style="{StaticResource PhoneTextNormalStyle}" FontFamily="Verdana" Foreground="#FFC8C8C8" />
+            <TextBlock x:Name="PageTitle" Text="My Events" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="#FFC8C8C8" FontFamily="Verdana" />
+        </StackPanel>
+
+        <!--ContentPanel - placez tout contenu supplémentaire ici-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0">
+            <Border BorderBrush="#FF202020" BorderThickness="1" Height="71" Margin="139,540,157,0" Name="border1" VerticalAlignment="Top" CornerRadius="30" Background="#FF202020" OpacityMask="#AF000000">
+                <Button Content="Ok" Height="72" Name="okButton" Width="160" Foreground="#FFC8C8C8" BorderBrush="#FF202020" Background="#FF202020" FontFamily="Verdana" Click="okButton_Click" />
+            </Border>
+            <Border BorderBrush="#FF202020" Height="127" HorizontalAlignment="Left" Margin="12,408,0,0" Name="border2" VerticalAlignment="Top" Width="438" Background="#FF202020" CornerRadius="30" BorderThickness="1" OpacityMask="#AF000000">
+                <TextBox Height="126" Name="commentTextBox" Text="Please type your comment here!" Width="437" AcceptsReturn="True" TextWrapping="Wrap" Foreground="#FFC8C8C8" BorderBrush="#FF202020" Background="#FF202020" FontFamily="Verdana" FontSize="20">
+                </TextBox>
+            </Border>
+        </Grid>
+        <Border BorderBrush="#FF202020" BorderThickness="1" Height="391" HorizontalAlignment="Left" Margin="21,11,0,0" Name="border3" VerticalAlignment="Top" Width="441" Grid.Row="1" CornerRadius="30" Background="#FF202020" OpacityMask="#AA000000">
+            <ListBox Height="353" Name="eventsListBox" Width="422" Background="#FF202020" BorderBrush="#FF202020" Foreground="#FFC8C8C8" />
+        </Border>
+    </Grid>
+ 
+    <!--Exemple de code illustrant l'utilisation d'ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Bouton 1"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Bouton 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="ÉlémentMenu 1"/>
+                <shell:ApplicationBarMenuItem Text="ÉlémentMenu 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+
+</phone:PhoneApplicationPage>

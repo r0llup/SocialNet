@@ -1,0 +1,17 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_ISocialNetService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:58777/SocialNetService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ISocialNetService"
+                contract="SocialNetServiceReference.ISocialNetService" name="BasicHttpBinding_ISocialNetService" />
+        </client>
+    </system.serviceModel>
+</configuration>

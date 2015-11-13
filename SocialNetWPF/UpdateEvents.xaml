@@ -1,0 +1,53 @@
+﻿<Window x:Class="SocialNetWPF.UpdateEvents"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SocialNet - UpdateEvents" Height="417" Width="451" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:my="clr-namespace:SocialNetWPF.SocialNetServiceReference" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <CollectionViewSource x:Key="eventsViewSource" d:DesignSource="{d:DesignInstance my:Event, CreateList=True}" />
+    </Window.Resources>
+    <Grid>
+        <GroupBox Header="Informations" Height="331" HorizontalAlignment="Left" Margin="12,12,0,0" Name="groupBox1" VerticalAlignment="Top" Width="405">
+            <Grid>
+                <Label Content="Ancien nom:" Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="label1" VerticalAlignment="Top" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="85,8,0,0" Name="ancienNomTextBox" VerticalAlignment="Top" Width="166" />
+                <Button Content="Rechercher" Height="23" HorizontalAlignment="Left" Margin="257,8,0,0" Name="searchButton" VerticalAlignment="Top" Width="75" Click="searchButton_Click" />
+                <Grid DataContext="{StaticResource eventsViewSource}" HorizontalAlignment="Left" Margin="3,40,0,0" Name="grid1" VerticalAlignment="Top" Width="375">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="274" />
+                        <ColumnDefinition Width="22*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Label Content="Categorie:" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="3" VerticalAlignment="Center" />
+                    <TextBox Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="3,3,0,3" Name="categorieTextBox" Text="{Binding Path=Categorie, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" VerticalAlignment="Center" Width="166" />
+                    <Label Content="Date Debut:" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="3" VerticalAlignment="Center" />
+                    <DatePicker Grid.Column="1" Grid.Row="1" Height="25" HorizontalAlignment="Left" Margin="3,3,0,3" Name="dateDebutDatePicker" SelectedDate="{Binding Path=DateDebut, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" VerticalAlignment="Center" Width="213" Grid.ColumnSpan="2" />
+                    <Label Content="Date Fin:" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Margin="3" VerticalAlignment="Center" />
+                    <DatePicker Grid.Column="1" Grid.Row="2" Height="25" HorizontalAlignment="Left" Margin="3,3,0,3" Name="dateFinDatePicker" SelectedDate="{Binding Path=DateFin, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" VerticalAlignment="Center" Width="213" />
+                    <Label Content="Description:" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" Margin="3" VerticalAlignment="Center" />
+                    <TextBox Grid.Column="1" Grid.Row="3" Height="23" HorizontalAlignment="Left" Margin="3,3,0,3" Name="descriptionTextBox" Text="{Binding Path=Description, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" VerticalAlignment="Center" Width="271" Grid.ColumnSpan="2" />
+                    <Label Content="Nom:" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" Margin="3" VerticalAlignment="Center" />
+                    <TextBox Grid.Column="1" Grid.Row="4" Height="23" HorizontalAlignment="Left" Margin="3,3,0,3" Name="nomTextBox" Text="{Binding Path=Nom, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" VerticalAlignment="Center" Width="166" />
+                    <Label Content="Photo:" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Left" Margin="3" VerticalAlignment="Center" />
+                    <TextBox Grid.Column="1" Grid.Row="5" Height="23" HorizontalAlignment="Left" Margin="3,3,0,3" Name="photoTextBox" Text="{Binding Path=Photo, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" VerticalAlignment="Center" Width="271" />
+                    <Label Content="Statut:" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Left" Margin="3" VerticalAlignment="Center" />
+                    <TextBox Grid.Column="1" Grid.Row="6" Height="23" HorizontalAlignment="Left" Margin="3,3,0,3" Name="statutTextBox" Text="{Binding Path=Statut, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" VerticalAlignment="Center" Width="120" />
+                    <Label Content="User:" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Left" Margin="3" VerticalAlignment="Center" />
+                    <TextBox Grid.Column="1" Grid.Row="7" Height="23" HorizontalAlignment="Left" Margin="3" Name="userTextBox" Text="{Binding Path=User, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" VerticalAlignment="Center" Width="120" />
+                </Grid>
+            </Grid>
+        </GroupBox>
+        <Grid Height="27" HorizontalAlignment="Left" Margin="13,348,0,0" Name="grid2" VerticalAlignment="Top" Width="404">
+            <Button Content="Ok" Height="23" HorizontalAlignment="Left" Margin="158,4,0,0" Name="okButton" VerticalAlignment="Top" Width="75" Click="okButton_Click" />
+        </Grid>
+    </Grid>
+</Window>

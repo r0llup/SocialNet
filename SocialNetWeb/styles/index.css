@@ -1,0 +1,87 @@
+﻿html, body  {
+    height: 100%;
+    overflow: auto;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #474747;
+    background-image: url(../Pictures/bg.gif);
+    background-repeat: repeat;
+}
+
+#content {
+    position: absolute;
+    left: 36%;
+    height: 94%;
+    margin-top: 3%;
+    margin-left: -25%;
+    background-color: #474747;
+    border-radius: 30px;
+    -moz-opacity:0.75;
+    opacity: 0.75;
+    filter:alpha(opacity=75);
+}
+
+h1 {
+    width: 25%;
+    margin-top: 2.5%;
+    margin-left: 37.5%;
+    text-align: center;
+    color: #C8C8C8;
+    background-color: #202020;
+    font-family: Verdana;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: normal;
+    border-radius: 30px;
+}
+
+#menu {
+    width: 95.8%;
+    margin-top:2.5%;
+    margin-left: 1.3%;
+    padding: 10px;
+    list-style: none;
+    text-align: center;
+    background-color: #202020;
+    border-radius: 30px;
+}
+
+#menu li {
+    display: inline;
+    margin-right: 5px;
+}
+
+#menu li a {
+    color: #C8C8C8;
+    font-family: Verdana;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: normal;
+}   
+
+#welcomeLabel {
+    color: #C8C8C8;
+    font-family: Verdana;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: normal;
+}
+
+#carousel {
+    width: 1280px;
+    height: 720px;
+    background-color: #474747;
+    border-radius: 30px;
+}
+
+#subcontent {
+    width: 1280px;
+    height: 75%;
+    margin: 20px;
+    padding: 20px;
+    background-color: #202020;
+    border-radius: 30px;
+}

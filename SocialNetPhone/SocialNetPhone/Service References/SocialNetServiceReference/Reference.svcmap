@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="46e311e4-7a28-4e42-bd93-36928dfe5edf" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:58777/SocialNetService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SocialNetService.wsdl" MetadataType="Wsdl" ID="f7bcaabb-5d9d-43c8-ab6d-a30897064fb0" SourceId="1" SourceUrl="http://localhost:58777/SocialNetService.svc?wsdl" />
+    <MetadataFile FileName="SocialNetService.xsd" MetadataType="Schema" ID="bf71a1db-5cdf-4b86-90ab-163a8a449847" SourceId="1" SourceUrl="http://localhost:58777/SocialNetService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SocialNetService1.xsd" MetadataType="Schema" ID="842cdfad-40fe-4db0-9e54-02a69cf658c0" SourceId="1" SourceUrl="http://localhost:58777/SocialNetService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SocialNetService2.xsd" MetadataType="Schema" ID="2c7b0717-2332-4236-aeb4-2ccadef3fa7b" SourceId="1" SourceUrl="http://localhost:58777/SocialNetService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SocialNetService3.xsd" MetadataType="Schema" ID="64813783-1b2e-4d7f-88cc-960a0bcfb5e1" SourceId="1" SourceUrl="http://localhost:58777/SocialNetService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SocialNetService.disco" MetadataType="Disco" ID="efc74b1e-94a6-4f5b-8b88-bbbeb0f0a367" SourceId="1" SourceUrl="http://localhost:58777/SocialNetService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

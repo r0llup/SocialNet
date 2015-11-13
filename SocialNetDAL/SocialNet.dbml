@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SocialNet" Class="SocialNetDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=P8P67-PRO\SQLEXPRESS;Initial Catalog=SocialNet;Integrated Security=True;Pooling=False" SettingsObjectName="SocialNetDAL.Properties.Settings" SettingsPropertyName="SocialNetConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Categories" Member="Categories">
+    <Type Name="Category">
+      <Column Name="Nom" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Association Name="Category_Event" Member="Events" ThisKey="Nom" OtherKey="Categorie" Type="Event" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Events" Member="Events">
+    <Type Name="Event">
+      <Column Name="Nom" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Categorie" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateDebut" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DateFin" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Photo" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="Statut" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="[User]" Member="User" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Event_Comment" Member="Comments" ThisKey="Nom" OtherKey="Event" Type="Comment" />
+      <Association Name="Event_Record" Member="Records" ThisKey="Nom" OtherKey="Event" Type="Record" />
+      <Association Name="Category_Event" Member="Category" ThisKey="Categorie" OtherKey="Nom" Type="Category" IsForeignKey="true" />
+      <Association Name="User_Event" Member="User1" ThisKey="User" OtherKey="Pseudo" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="Nom" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Prenom" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Pseudo" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Avatar" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Association Name="User_Event" Member="Events" ThisKey="Pseudo" OtherKey="User" Type="Event" />
+      <Association Name="User_Comment" Member="Comments" ThisKey="Pseudo" OtherKey="User" Type="Comment" />
+      <Association Name="User_Record" Member="Records" ThisKey="Pseudo" OtherKey="User" Type="Record" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PrivateEvents" Member="PrivateEvents">
+    <Type Name="PrivateEvent">
+      <Column Name="Nom" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Categorie" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateDebut" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DateFin" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Photo" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="Statut" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="[User]" Member="User" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PublicEvents" Member="PublicEvents">
+    <Type Name="PublicEvent">
+      <Column Name="Nom" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Categorie" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateDebut" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DateFin" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Photo" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="Statut" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="[User]" Member="User" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Comments" Member="Comments">
+    <Type Name="Comment">
+      <Column Name="Event" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="[User]" Member="User" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Photo" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Commentaire" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Association Name="Event_Comment" Member="Event1" ThisKey="Event" OtherKey="Nom" Type="Event" IsForeignKey="true" />
+      <Association Name="User_Comment" Member="User1" ThisKey="User" OtherKey="Pseudo" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Records" Member="Records">
+    <Type Name="Record">
+      <Column Name="Event" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="[User]" Member="User" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Event_Record" Member="Event1" ThisKey="Event" OtherKey="Nom" Type="Event" IsForeignKey="true" />
+      <Association Name="User_Record" Member="User1" ThisKey="User" OtherKey="Pseudo" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
